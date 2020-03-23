@@ -1,1 +1,1 @@
-{"x":2,"y":2,"Strength":0,"Referencepoint":null}
+{"x":10,"y":10,"Strength":1.0,"Referencepoint":null}

@@ -5000,11 +5000,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\AarhusUniversity\\PRJ4\\web_app_backend\\web_app_backend.csproj",
+      "projectUniqueName": "D:\\Repo\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj",
       "projectName": "web_app_backend",
-      "projectPath": "D:\\Repo\\AarhusUniversity\\PRJ4\\web_app_backend\\web_app_backend.csproj",
+      "projectPath": "D:\\Repo\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj",
       "packagesPath": "C:\\Users\\Victo\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\AarhusUniversity\\PRJ4\\web_app_backend\\obj\\",
+      "outputPath": "D:\\Repo\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
