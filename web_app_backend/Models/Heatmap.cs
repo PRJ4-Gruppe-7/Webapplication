@@ -1,6 +1,6 @@
 ﻿namespace web_app_backend.Models
 {
-    class Heatmap
+    public class Heatmap
     {
         public int x { get; set; }
         public int y { get; set; }

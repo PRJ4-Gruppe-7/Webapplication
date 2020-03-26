@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-            Controller Control = new Controller();
+            IController Control = new Controller();
 
             Control.OpenConnection();
             Control.Receive();

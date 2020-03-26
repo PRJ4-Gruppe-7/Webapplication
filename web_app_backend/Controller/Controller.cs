@@ -9,12 +9,8 @@ using web_app_backend.Models;
 
 namespace web_app_backend
 {
-    public class Controller
+    public class Controller : IController
     {
-        List<int> Xcoor = new List<int>();
-        List<int> Ycoor = new List<int>();
-
-
         //server connection string
         private static string constr =
             "Server = tcp:fruitflyserver.database.windows.net,1433;Initial Catalog = FruitFly; Persist Security Info=False;User ID = dalleman; Password=Frugtflue1;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout = 30;";
@@ -22,7 +18,12 @@ namespace web_app_backend
         private static SqlConnection Cnn = new SqlConnection(constr);       //Sql connector that opens and closes the connection
 
         //Query string that reads all content from dbo.Referencepoints
-        const string Query1 = "SELECT X,Y, Referencepoints.HeatmapId, Heatmaps.Strength FROM Referencepoints INNER JOIN Heatmaps ON ReferencepointID = Heatmaps.HeatmapId";    
+        const string Query1 = "SELECT X,Y, Referencepoints.HeatmapId, Heatmaps.Strength FROM Referencepoints INNER JOIN Heatmaps ON ReferencepointID = Heatmaps.HeatmapId";
+
+        public Controller()
+        {
+        }
+
         
 
         public void OpenConnection()
@@ -40,7 +41,7 @@ namespace web_app_backend
         {
             SqlCommand cmdHeatmap = new SqlCommand(Query1,Cnn);      //sqlCommand that lets you call query on the sqlconnector
             SqlDataReader Reader = cmdHeatmap.ExecuteReader();              //Data reader that reads forward only data from the sqldatabase table
-             List<Heatmap> heatmaps = new List<Heatmap>();
+            List<Heatmap> heatmaps = new List<Heatmap>();
 
             if (Reader.HasRows)                                             //If statement that checks if the table has data or not
             {
@@ -65,27 +66,36 @@ namespace web_app_backend
                     };
 
                     heatmaps.Add(obj);
+
                 }
 
-                var json = Newtonsoft.Json.JsonConvert.SerializeObject(heatmaps);    //Serializes the object into json format.
-                Console.WriteLine(json + "\n");
-
-                //location of data file found in /bin/debug/netcoreapp3.1/
-                string executableLocation = Path.GetDirectoryName(
-                    Assembly.GetExecutingAssembly().Location);
-                string xslLocation = Path.Combine(executableLocation, "heat.txt");
-
-
-                using (StreamWriter outputFile = new StreamWriter(xslLocation))
-                {
-                    outputFile.Write(json);
-                }
 
             }
             else
             {
                 Console.WriteLine("No data found.");
             }
+
+            JsonSerialize(heatmaps);
+
         }
+
+        public void JsonSerialize(List<Heatmap> dataHeatmaps)
+        {
+            var json = Newtonsoft.Json.JsonConvert.SerializeObject(dataHeatmaps);    //Serializes the object into json format.
+            Console.WriteLine(json + "\n");
+
+            //location of data file found in /bin/debug/netcoreapp3.1/
+            string executableLocation = Path.GetDirectoryName(
+                Assembly.GetExecutingAssembly().Location);
+            string xslLocation = Path.Combine(executableLocation, "heat.txt");
+
+
+            using (StreamWriter outputFile = new StreamWriter(xslLocation))
+            {
+                outputFile.Write(json);
+            }
+        }
+
     }
 }
