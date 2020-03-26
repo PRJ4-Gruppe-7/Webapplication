@@ -16,7 +16,9 @@ namespace web_app_backend
 
         private static SqlConnection cnn = new SqlConnection(constr);       //Sql connector that opens and closes the connection
 
-        const string query1 = "SELECT * FROM dbo.Referencepoints;";         //Query string that reads all content from dbo.Referencepoints
+        //Query string that reads all content from dbo.Referencepoints
+        const string query1 = "SELECT X,Y, Referencepoints.HeatmapId, Heatmaps.Strength FROM Referencepoints INNER JOIN Heatmaps ON ReferencepointID = Heatmaps.HeatmapId";    
+        
 
         public void OpenConnection()
         {
@@ -39,21 +41,22 @@ namespace web_app_backend
                 while (Reader.Read())
                 {
                     //display retrieved record (first column only/string value)
-                    Console.WriteLine("ID : " + Reader.GetInt32(0) + " |Cat : " + Reader.GetInt32(1) + " |RSS1 : " +
-                                      Reader.GetInt32(2) + " |RSSI2 : " + Reader.GetInt32(3) + " |RSSI3 : " + Reader.GetInt32(4)
-                                      + " |X : " + Reader.GetInt32(5) + " |Y : " + Reader.GetInt32(6));
+                    Console.WriteLine("X : " + Reader.GetInt32(0) + " |Y : " + Reader.GetInt32(1) + " |HeatmapID : " +
+                                      Reader.GetInt32(2) + " |Strength : " + Reader.GetFloat(3));
 
-                    int X = Reader.GetInt32(1);     //Stores value of int32 on second spot (x) on index
-                    int Y = Reader.GetInt32(2);     //Stores value of int32 on third spot (y) on index
+                    int X = Reader.GetInt32(0);
+                    int Y = Reader.GetInt32(1);
+                    float S = Reader.GetFloat(3);     //Stores value of int32 on second spot (strengh) on index
 
                     var obj = new Heatmap()
                     {
                         x = X,
-                        y = Y
+                        y = Y,
+                        Strength = S
                     };
 
                     var json = Newtonsoft.Json.JsonConvert.SerializeObject(obj);    //Serializes the object into json format.
-                    Console.WriteLine(json);
+                    Console.WriteLine(json + "\n");
 
                     //location of data file found in /bin/debug/netcoreapp3.1/
                     string executableLocation = Path.GetDirectoryName(
@@ -73,17 +76,6 @@ namespace web_app_backend
             {
                 Console.WriteLine("No data found.");
             }
-
-        }
-
-        public void Insert()
-        {
-            
-        }
-
-        public void set()
-        {
-            
         }
     }
 }
