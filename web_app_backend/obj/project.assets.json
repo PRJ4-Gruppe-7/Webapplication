@@ -4995,20 +4995,27 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Victo\\.nuget\\packages\\": {}
+    "C:\\Users\\viksk\\.nuget\\packages\\": {},
+    "C:\\Microsoft\\Xamarin\\NuGet\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repo\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj",
+      "projectUniqueName": "C:\\Users\\viksk\\Source\\Repos\\PRJ4-Gruppe-7\\Webapplication\\web_app_backend\\web_app_backend.csproj",
       "projectName": "web_app_backend",
-      "projectPath": "D:\\Repo\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj",
-      "packagesPath": "C:\\Users\\Victo\\.nuget\\packages\\",
-      "outputPath": "D:\\Repo\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\obj\\",
+      "projectPath": "C:\\Users\\viksk\\Source\\Repos\\PRJ4-Gruppe-7\\Webapplication\\web_app_backend\\web_app_backend.csproj",
+      "packagesPath": "C:\\Users\\viksk\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\viksk\\Source\\Repos\\PRJ4-Gruppe-7\\Webapplication\\web_app_backend\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Microsoft\\Xamarin\\NuGet\\",
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+      ],
       "configFilePaths": [
-        "C:\\Users\\Victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\viksk\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"

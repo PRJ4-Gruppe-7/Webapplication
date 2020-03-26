@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\web_app_backend",
-    "\\web_app_backend\\Controller",
-    "\\web_app_backend\\Models"
+    "\\web_app_backend"
   ],
-  "SelectedNode": "\\web_app_backend\\Models\\Referencepoint.cs",
+  "SelectedNode": "\\web_app_backend\\web_app_backend.sln",
   "PreviewInSolutionExplorer": false
 }
