@@ -1,19 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Net;
 using System.Net.Http;
-using System.Net.Http.Headers;
 using System.Reflection;
-using System.Security.Principal;
 using System.Threading.Tasks;
 using web_app_backend2.Models;
 
 namespace web_app_backend2
 {
     class Program
-    {
+    { 
         private static int items = 9;
         static HttpClient client = new HttpClient();
         private static string[] line;
@@ -28,13 +24,11 @@ namespace web_app_backend2
             try
             {
                 client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3");
-
                 HttpResponseMessage response = await client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
                 // Above three lines can be replaced with new helper method below
                 // string responseBody = await client.GetStringAsync(uri);
-
 
                 //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
                 line = responseBody.Split(',', items * 1000);
@@ -72,6 +66,7 @@ namespace web_app_backend2
             }
             catch (HttpRequestException e)
             {
+                
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
             }
@@ -83,18 +78,32 @@ namespace web_app_backend2
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(dataHeatmaps);    //Serializes the object into json format.
 
             //writes the entire json file in terminal
-            //Console.WriteLine(json + "\n");
+            Console.WriteLine(json + "\n");
 
             //location of data file found in /bin/debug/netcoreapp3.1/
             string executableLocation = Path.GetDirectoryName(
                 Assembly.GetExecutingAssembly().Location);
-            string xslLocation = Path.Combine(executableLocation, "heat.txt");  //stores json in a txt file named heat.
+            string xslLocation = Path.Combine(executableLocation, "heat.json");  //stores json in a txt file named heat.
 
-
-            using (StreamWriter outputFile = new StreamWriter(xslLocation))
+            if (File.Exists(xslLocation))
             {
-                outputFile.Write(json);
+                File.Delete(xslLocation);
+                using (StreamWriter outputFile = new StreamWriter(xslLocation, true))
+                {
+                    outputFile.Write(json.ToString());
+                    outputFile.Close();
+                }
             }
+            else if (!File.Exists(xslLocation))
+            {
+                using (StreamWriter outputFile = new StreamWriter(xslLocation, true))
+                {
+                    outputFile.Write(json.ToString());
+                    outputFile.Close();
+                }
+            }
+
+            
         }
 
         public static int ExtractInteger(string lines)
