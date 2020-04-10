@@ -1,0 +1,15 @@
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\web_app_backend2.exe
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\obj\Debug\netcoreapp3.1\web_app_backend2.csprojAssemblyReference.cache
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\obj\Debug\netcoreapp3.1\web_app_backend2.AssemblyInfoInputs.cache
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\obj\Debug\netcoreapp3.1\web_app_backend2.AssemblyInfo.cs
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\web_app_backend2.deps.json
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\web_app_backend2.runtimeconfig.json
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\web_app_backend2.runtimeconfig.dev.json
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\web_app_backend2.dll
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\web_app_backend2.pdb
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\obj\Debug\netcoreapp3.1\web_app_backend2.csproj.CopyComplete
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\obj\Debug\netcoreapp3.1\web_app_backend2.dll
+D:\Repository\AarhusUniversity\PRJ4\webapplicationV2\web_app_backend2\obj\Debug\netcoreapp3.1\web_app_backend2.pdb

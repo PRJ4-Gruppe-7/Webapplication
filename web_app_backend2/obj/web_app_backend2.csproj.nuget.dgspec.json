@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj": {}
+    "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj": {}
   },
   "projects": {
-    "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj": {
+    "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj",
-        "projectName": "web_app_backend",
-        "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\web_app_backend.csproj",
+        "projectUniqueName": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj",
+        "projectName": "web_app_backend2",
+        "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj",
         "packagesPath": "C:\\Users\\Victo\\.nuget\\packages\\",
-        "outputPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend\\obj\\",
+        "outputPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -38,29 +38,9 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
-            "Microsoft.EntityFrameworkCore": {
+            "Microsoft.AspNet.WebApi.Client": {
               "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.SqlServer": {
-              "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
-              "suppressParent": "All",
-              "target": "Package",
-              "version": "[3.1.2, )"
-            },
-            "Newtonsoft.Json": {
-              "target": "Package",
-              "version": "[12.0.3, )"
+              "version": "[5.2.7, )"
             }
           },
           "imports": [

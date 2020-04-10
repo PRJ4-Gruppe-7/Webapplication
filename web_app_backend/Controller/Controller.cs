@@ -24,8 +24,6 @@ namespace web_app_backend
         {
         }
 
-        
-
         public void OpenConnection()
         {
             Cnn.Open();                                                     //opens the connection to the sqlServer - must be called at the beginning of main
