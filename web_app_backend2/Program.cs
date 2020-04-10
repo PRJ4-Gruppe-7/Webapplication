@@ -45,6 +45,8 @@ namespace web_app_backend2
 
                 for (int i = 0; i < lineHeat.Count; i++)
                 {
+
+                    //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
                     var obj = new Heatmap
                     {
                         x = ExtractInteger(lineX[i]),
@@ -53,23 +55,19 @@ namespace web_app_backend2
                         Value = 1
                     };
 
+                    //adds all the added headmaps into a list of heatmaps. 
                     heatmaps.Add(obj);
                 }
 
-                foreach (var i in heatmaps)
-                {
-                    Console.WriteLine("X: "+ i.x + "\t" + "Y: "+ i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " + i.HeatmapID + "\n");
-                }
-
-                /*
-                Console.WriteLine("This is the lineX, lineY and lineHeat\n\n");
-                for (int i = 0; i < lineHeat.Count; i++)
-                {
-                    Console.Write(lineX[i] + "\t" + lineY[i] + "\t" + lineHeat[i] + "\t" + "\n\n");
-                }*/
-
+                //compares if there are more than 1 element with the same x and y coordinates. If so, the value of the item will increase with 1 pr matching elements.
                 CompareElements(heatmaps);
 
+                foreach (var i in heatmaps)
+                {
+                    Console.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " + i.HeatmapID + "\n");
+                }
+
+                //serializes the list of heatmaps and 
                 JsonSerialize(heatmaps);
             }
             catch (HttpRequestException e)
@@ -83,12 +81,14 @@ namespace web_app_backend2
         public static void JsonSerialize(List<Heatmap> dataHeatmaps)
         {
             var json = Newtonsoft.Json.JsonConvert.SerializeObject(dataHeatmaps);    //Serializes the object into json format.
+
+            //writes the entire json file in terminal
             //Console.WriteLine(json + "\n");
 
             //location of data file found in /bin/debug/netcoreapp3.1/
             string executableLocation = Path.GetDirectoryName(
                 Assembly.GetExecutingAssembly().Location);
-            string xslLocation = Path.Combine(executableLocation, "heat.txt");
+            string xslLocation = Path.Combine(executableLocation, "heat.txt");  //stores json in a txt file named heat.
 
 
             using (StreamWriter outputFile = new StreamWriter(xslLocation))

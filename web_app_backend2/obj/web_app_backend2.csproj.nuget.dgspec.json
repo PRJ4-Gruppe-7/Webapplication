@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj": {}
+    "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2\\web_app_backend2.csproj": {}
   },
   "projects": {
-    "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj": {
+    "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2\\web_app_backend2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj",
+        "projectUniqueName": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2\\web_app_backend2.csproj",
         "projectName": "web_app_backend2",
-        "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\web_app_backend2.csproj",
+        "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2\\web_app_backend2.csproj",
         "packagesPath": "C:\\Users\\Victo\\.nuget\\packages\\",
-        "outputPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2\\obj\\",
+        "outputPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
