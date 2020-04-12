@@ -13,12 +13,21 @@ namespace web_app_backend2_API
 
             for (int j = 0; j < a.Length; j++)
             {
-                if (Char.IsDigit(a[j])) 
+                if (Char.IsDigit(a[j]))
+                {
                     b += a[j];
+                }
+                else
+                {
+                    //System.Diagnostics.Debug.WriteLine("String don't contain any digits");    //Prints if the string don't contain digits
+                }
             }
 
             if (b.Length > 0)
                 val = int.Parse(b);
+
+            System.Diagnostics.Debug.WriteLine("Digits extracted from string");
+
             return val;
         }
     }

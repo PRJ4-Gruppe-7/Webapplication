@@ -8,20 +8,33 @@ namespace web_app_backend2_API
     {
         public void CompareHeatmapValues(List<Heatmap> items,int index)
         {
-            for (int i = 0; i < index; i++)
+            if (index > 0)
             {
-                for (int j = 0; j < index; j++)
+                for (int i = 0; i < index; i++)
                 {
-                    if (items[i].x == items[j].x && items[i].HeatmapID != items[j].HeatmapID && items[i].y == items[j].y) //compares two instances of the same list of heatmaps, and check if any coordinates match in the two list.
+                    for (int j = 0; j < index; j++)
                     {
-                        Console.WriteLine("It's a match! " + "\t ID: " + items[i].HeatmapID + " X: " + items[i].x + " Y: " + items[i].y + "\t ID: " + items[j].HeatmapID + " X: " + items[j].x + " Y: " + items[j].y);
-                        items[i].Value++; //Increase the heatmap value by 1 where to sets of coordinates overlap
-                    }
-                    else
-                    {
-                        //Console.WriteLine("Not a match");
+                        if (items[i].x == items[j].x && items[i].HeatmapID != items[j].HeatmapID &&
+                            items[i].y == items[j].y
+                        ) //compares two instances of the same list of heatmaps, and check if any coordinates match in the two list.
+                        {
+                            Console.WriteLine("It's a match! " + "\t ID: " + items[i].HeatmapID + " X: " + items[i].x +
+                                              " Y: " + items[i].y + "\t ID: " + items[j].HeatmapID + " X: " +
+                                              items[j].x + " Y: " + items[j].y);
+                            items[i].Value++; //Increase the heatmap value by 1 where to sets of coordinates overlap
+                        }
+                        else
+                        {
+                            //Console.WriteLine("Not a match");
+                        }
                     }
                 }
+
+                System.Diagnostics.Debug.WriteLine("Elements compared");
+            }
+            else
+            {
+                System.Diagnostics.Debug.WriteLine("No elements to compare");
             }
         }
     }
