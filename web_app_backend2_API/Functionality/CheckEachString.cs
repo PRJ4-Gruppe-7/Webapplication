@@ -8,15 +8,15 @@ namespace web_app_backend2_API
         {
             foreach (var i in line)
             {
-                if (i.Contains('x'))
+                if (i.Contains('x') || i.Contains('X')) //Adds all the 'x' coordinates to a list of strings 
                 {
                     line1.Add(i);
                 }
-                else if (i.Contains('y') && !i.Contains('c'))
+                else if (i.Contains('y') || i.Contains('Y') && !i.Contains('c')) //Adds all the 'y' coordinates to a list of strings
                 {
                     line2.Add(i);
                 }
-                else if (i.Contains('h') && i.Contains('e') && i.Contains('a') && i.Contains('t'))
+                else if (i.Contains('h') && i.Contains('e') && i.Contains('a') && i.Contains('t')) //Adds all the 'heatmapID' values to a list of strings
                 {
                     line3.Add(i);
                 }
