@@ -27,8 +27,9 @@ namespace web_app_backend2
                 HttpResponseMessage response = await client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
+
                 // Above three lines can be replaced with new helper method below
-                // string responseBody = await client.GetStringAsync(uri);
+           
 
                 //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
                 line = responseBody.Split(',', items * 1000);
