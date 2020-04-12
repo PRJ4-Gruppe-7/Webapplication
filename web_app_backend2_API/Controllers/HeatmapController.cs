@@ -32,7 +32,7 @@ namespace web_app_backend2_API.Controllers
             {
                 Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
 
-                HttpResponseMessage response = await Client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
+                HttpResponseMessage response = await Client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -66,15 +66,15 @@ namespace web_app_backend2_API.Controllers
                 }
 
                 //returns all data stored in the list of heatmaps to the GET method
-                return Heatmaps;
 
             }
             catch (HttpRequestException e)
             {
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", e.Message);
-                return Heatmaps;
             }
+
+            return Heatmaps;
         }
     }
 }
