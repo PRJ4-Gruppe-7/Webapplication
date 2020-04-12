@@ -20,7 +20,7 @@
     "web_app_backend2_API": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "weatherforecast",
+      "launchUrl": "Heatmap",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
