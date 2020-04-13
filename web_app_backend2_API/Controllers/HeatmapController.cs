@@ -11,7 +11,7 @@ namespace web_app_backend2_API.Controllers
     [Route("[controller]")]
     public class HeatmapController : ControllerBase
     {
-        private static readonly int items = 9;   //based on number of commas in original heatmap DB
+        private static readonly int items = 9; //based on number of commas in original heatmap DB
         static readonly HttpClient Client = new HttpClient();
         private static string[] _line;
         private static readonly List<string> LineX = new List<string>();
@@ -32,7 +32,8 @@ namespace web_app_backend2_API.Controllers
             {
                 Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
 
-                HttpResponseMessage response = await Client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
+                HttpResponseMessage response =
+                    await Client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -40,7 +41,7 @@ namespace web_app_backend2_API.Controllers
                 _line = responseBody.Split(',', items * 1000);
 
                 //Checks for 3 specific strings that contain: 'x', 'y' and ('h', 'e', 'a' and 't').
-                CheckEachString.CheckString(_line,LineX,LineY,LineHeat);
+                CheckEachString.CheckString(_line, LineX, LineY, LineHeat);
 
                 for (int i = 0; i < LineHeat.Count; i++)
                 {
@@ -58,11 +59,12 @@ namespace web_app_backend2_API.Controllers
                 }
 
                 //compares if there are more than 1 element with the same x and y coordinates. If so, the value of the item will increase with 1 pr matching elements.
-                CompareElements.CompareHeatmapValues(Heatmaps,LineHeat.Count);
+                CompareElements.CompareHeatmapValues(Heatmaps, LineHeat.Count);
 
                 foreach (var i in Heatmaps)
                 {
-                    Console.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " + i.HeatmapID + "\n");
+                    Console.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
+                                      i.HeatmapID + "\n");
                 }
 
                 //returns all data stored in the list of heatmaps to the GET method
@@ -75,6 +77,25 @@ namespace web_app_backend2_API.Controllers
             }
 
             return Heatmaps;
+        }
+
+        [HttpDelete]
+        public async void Delete()
+        {
+            // Call asynchronous network methods in a try/catch block to handle exceptions.
+            try
+            {
+                Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
+
+                HttpResponseMessage response =
+                    await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
+
+            }
+            catch (HttpRequestException e)
+            {
+                Console.WriteLine("\nException Caught!");
+                Console.WriteLine("Message :{0} ", e.Message);
+            }
         }
     }
 }
