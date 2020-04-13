@@ -67,8 +67,6 @@ namespace web_app_backend2_API.Controllers
                                       i.HeatmapID + "\n");
                 }
 
-                //returns all data stored in the list of heatmaps to the GET method
-
             }
             catch (HttpRequestException e)
             {
@@ -76,6 +74,7 @@ namespace web_app_backend2_API.Controllers
                 Console.WriteLine("Message :{0} ", e.Message);
             }
 
+            //returns all data stored in the list of heatmaps to the GET method
             return Heatmaps;
         }
 
