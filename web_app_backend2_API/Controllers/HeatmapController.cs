@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +13,8 @@ namespace web_app_backend2_API.Controllers
     public class HeatmapController : ControllerBase
     {
         private static readonly int items = 9; //based on number of commas in original heatmap DB
-        static readonly HttpClient Client = new HttpClient();
+        private static HttpHandler _httpHandler = new HttpHandler();
+        private static HttpClient Client = new HttpClient();
         private static string[] _line;
         private static readonly List<string> LineX = new List<string>();
         private static readonly List<string> LineY = new List<string>();
@@ -30,10 +32,9 @@ namespace web_app_backend2_API.Controllers
             {
                 Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
 
-                HttpResponseMessage response =
-                    await Client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
-                response.EnsureSuccessStatusCode();
-                string responseBody = await response.Content.ReadAsStringAsync();
+               var handler = _httpHandler.Get("https://fruitflyapi.azurewebsites.net/api/Heatmap", Client).EnsureSuccessStatusCode();
+
+               string responseBody = await handler.Content.ReadAsStringAsync();
 
                 //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
                 _line = responseBody.Split(',', items * 1000);
@@ -61,7 +62,7 @@ namespace web_app_backend2_API.Controllers
 
                 foreach (var i in Heatmaps)
                 {
-                    Console.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
+                    Debug.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
                                       i.HeatmapID + "\n");
                 }
 

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Castle.Core.Internal;
 using NSubstitute;
 using NUnit.Framework;
 using web_app_backend2.Models;
@@ -76,5 +77,6 @@ namespace web_app_backend2_API_Unit.Test
             uut.CompareHeatmapValues(items, items.Count);
             Assert.AreNotEqual(2, items[1].Value);
         }
+
     }
 }
