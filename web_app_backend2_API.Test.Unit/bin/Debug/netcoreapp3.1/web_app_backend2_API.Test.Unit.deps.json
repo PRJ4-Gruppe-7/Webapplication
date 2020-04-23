@@ -6,7 +6,7 @@
   "compilationOptions": {},
   "targets": {
     ".NETCoreApp,Version=v3.1": {
-      "web_app_backend2_API_Unit.Test/1.0.0": {
+      "web_app_backend2_API.Test.Unit/1.0.0": {
         "dependencies": {
           "Microsoft.NET.Test.Sdk": "16.6.0",
           "NSubstitute": "4.2.1",
@@ -15,7 +15,7 @@
           "web_app_backend2_API": "1.0.0"
         },
         "runtime": {
-          "web_app_backend2_API_Unit.Test.dll": {}
+          "web_app_backend2_API.Test.Unit.dll": {}
         }
       },
       "Castle.Core/4.4.0": {
@@ -1360,7 +1360,7 @@
     }
   },
   "libraries": {
-    "web_app_backend2_API_Unit.Test/1.0.0": {
+    "web_app_backend2_API.Test.Unit/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

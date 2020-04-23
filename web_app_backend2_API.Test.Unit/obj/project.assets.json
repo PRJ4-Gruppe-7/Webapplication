@@ -6852,11 +6852,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2_API_Unit.Test\\web_app_backend2_API_Unit.Test.csproj",
-      "projectName": "web_app_backend2_API_Unit.Test",
-      "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2_API_Unit.Test\\web_app_backend2_API_Unit.Test.csproj",
+      "projectUniqueName": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2_API.Test.Unit\\web_app_backend2_API.Test.Unit.csproj",
+      "projectName": "web_app_backend2_API.Test.Unit",
+      "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2_API.Test.Unit\\web_app_backend2_API.Test.Unit.csproj",
       "packagesPath": "C:\\Users\\Victo\\.nuget\\packages\\",
-      "outputPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2_API_Unit.Test\\obj\\",
+      "outputPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2_API.Test.Unit\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Victo\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -6872,8 +6872,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2_API\\web_app_backend2_API.csproj": {
-              "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\webapplicationV2\\web_app_backend2_API\\web_app_backend2_API.csproj"
+            "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2_API\\web_app_backend2_API.csproj": {
+              "projectPath": "D:\\Repository\\AarhusUniversity\\PRJ4\\Webapplication\\web_app_backend2_API\\web_app_backend2_API.csproj"
             }
           }
         }

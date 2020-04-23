@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using web_app_backend2.Models;
+using web_app_backend2_API.Interfaces;
 
 namespace web_app_backend2_API
 {
-    public class CompareElements
+    public class CompareElements : ICompareElements
     {
         public void CompareHeatmapValues(List<Heatmap> items,int index)
         {

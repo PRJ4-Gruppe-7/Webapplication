@@ -1,8 +1,9 @@
 ﻿using System;
+using web_app_backend2_API.Interfaces;
 
 namespace web_app_backend2_API
 {
-    public class Extractor
+    public class Extractor : IExtractor
     {
         public int ExtractFromString(string lines)
         {
