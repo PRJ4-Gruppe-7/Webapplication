@@ -25,6 +25,7 @@ namespace web_app_backend2_API.Controllers
         private static readonly CheckEachString CheckEachString = new CheckEachString();
 
         [HttpGet]
+        [Route("get")]
         public async Task<IEnumerable<Heatmap>> GetAllHeatmapAsync()
         {
             // Call asynchronous network methods in a try/catch block to handle exceptions.
@@ -79,10 +80,12 @@ namespace web_app_backend2_API.Controllers
         }
 
         [HttpDelete]
+        [Route("delete")]
         public async Task DeleteAllHeatmapAsync()
         {
             try
             {
+                Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
                 //Deleting
                 var response = await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
                 response.EnsureSuccessStatusCode();
