@@ -74,8 +74,8 @@ namespace web_app_backend2_API.Controllers
             }
 
             //Deletes everything on heatmap DB
-            HttpResponseMessage clear =
-                await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
+            // HttpResponseMessage clear =
+            //    await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
 
 
             //returns all data stored in the list of heatmaps to the GET method
