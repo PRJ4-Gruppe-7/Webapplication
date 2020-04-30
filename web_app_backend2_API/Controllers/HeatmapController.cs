@@ -25,7 +25,7 @@ namespace web_app_backend2_API.Controllers
         private static readonly CheckEachString CheckEachString = new CheckEachString();
 
         [HttpGet]
-        public async Task<IEnumerable<Heatmap>> Get()
+        public async Task<IEnumerable<Heatmap>> GetAllHeatmapAsync()
         {
             // Call asynchronous network methods in a try/catch block to handle exceptions.
             try
@@ -66,6 +66,7 @@ namespace web_app_backend2_API.Controllers
                                       i.HeatmapID + "\n");
                 }
 
+
             }
             catch (HttpRequestException e)
             {
@@ -73,14 +74,28 @@ namespace web_app_backend2_API.Controllers
                 Console.WriteLine("Message :{0} ", e.Message);
             }
 
-            //Deletes everything on heatmap DB
-            HttpResponseMessage clear =
-                await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap"); //Heatmap API Address
-
-
             //returns all data stored in the list of heatmaps to the GET method
             return Heatmaps;
         }
+
+        [HttpDelete]
+        public async Task DeleteAllHeatmapAsync()
+        {
+            try
+            {
+                //Deleting
+                var response = await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
+                response.EnsureSuccessStatusCode();
+
+                string responseBody = await response.Content.ReadAsStringAsync();
+                Console.WriteLine(responseBody);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Exception message: {0} ", ex.Message);
+            }
+        }
+
     }
 }
 

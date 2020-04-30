@@ -13,6 +13,42 @@ namespace web_app_backend2_API_Unit.Test
     {
         private ICompareElements uut;
         private List<Heatmap> items;
+        private Heatmap h1 = new Heatmap
+        {
+            x = 3,
+            y = 4,
+            Value = 1,
+            HeatmapID = 1
+        };
+        private Heatmap h2 = new Heatmap
+        {
+            x = 42,
+            y = 62,
+            Value = 1,
+            HeatmapID = 2
+        };
+        private Heatmap h3 = new Heatmap
+        {
+            x = 32,
+            y = 3,
+            Value = 1,
+            HeatmapID = 3
+        };
+        private Heatmap h4 = new Heatmap
+        {
+            x = 17,
+            y = 55,
+            Value = 1,
+            HeatmapID = 4
+        };
+        private Heatmap h5 = new Heatmap
+        {
+            x = 3,
+            y = 4,
+            Value = 1,
+            HeatmapID = 5
+        };
+
 
         [SetUp]
         public void Setup()
@@ -20,42 +56,7 @@ namespace web_app_backend2_API_Unit.Test
             uut = new CompareElements();
 
             items = new List<Heatmap>();
-            Heatmap h1 = new Heatmap
-            {
-                x = 3,
-                y = 4,
-                Value = 1,
-                HeatmapID = 1
-            };
-            Heatmap h2 = new Heatmap
-            {
-                x = 42,
-                y = 62,
-                Value = 1,
-                HeatmapID = 2
-            };
-            Heatmap h3 = new Heatmap
-            {
-                x = 32,
-                y = 3,
-                Value = 1,
-                HeatmapID = 3
-            };
-            Heatmap h4 = new Heatmap
-            {
-                x = 17,
-                y = 55,
-                Value = 1,
-                HeatmapID = 4
-            };
-            Heatmap h5 = new Heatmap
-            {
-                x = 3,
-                y = 4,
-                Value = 1,
-                HeatmapID = 5
-            };
-            
+
             items.Add(h1);
             items.Add(h2);
             items.Add(h3);

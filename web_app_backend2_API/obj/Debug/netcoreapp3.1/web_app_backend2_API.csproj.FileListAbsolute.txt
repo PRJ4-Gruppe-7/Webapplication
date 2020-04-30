@@ -48,3 +48,5 @@ D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\bin\Debu
 D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.csproj.CopyComplete
 D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.MvcApplicationPartsAssemblyInfo.cache
+D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.csproj.CoreCompileInputs.cache
+D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.genruntimeconfig.cache
