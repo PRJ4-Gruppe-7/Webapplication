@@ -4,7 +4,7 @@
     {
         public int x { get; set; }
         public int y { get; set; }
-        public float Strength { get; set; }
+        public float Value { get; set; }
         public int HeatmapID { get; set; }
     }
 }

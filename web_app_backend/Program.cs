@@ -6,9 +6,14 @@
         {
             IController Control = new Controller();
 
-            Control.OpenConnection();
-            Control.Receive();
-            Control.CloseConnection();
+            bool running = true;
+
+            while (running)
+            {
+                Control.OpenConnection();
+                Control.Receive();
+                Control.CloseConnection();
+            }
         }
     }
 }

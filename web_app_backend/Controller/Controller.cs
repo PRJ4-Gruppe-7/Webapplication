@@ -24,8 +24,6 @@ namespace web_app_backend
         {
         }
 
-        
-
         public void OpenConnection()
         {
             Cnn.Open();                                                     //opens the connection to the sqlServer - must be called at the beginning of main
@@ -49,7 +47,7 @@ namespace web_app_backend
                 {
                     //display retrieved record (first column only/string value)
                     Console.WriteLine("X : " + Reader.GetInt32(0) + " |Y : " + Reader.GetInt32(1) + " |HeatmapID : " +
-                                      Reader.GetInt32(2) + " |Strength : " + Reader.GetFloat(3));
+                                      Reader.GetInt32(2) + " |Value : " + Reader.GetFloat(3));
 
                     int X = Reader.GetInt32(0);       //Stores value of int32 on second spot (X) on index
                     int Y = Reader.GetInt32(1);       //Stores value of int32 on second spot (Y) on index
@@ -62,7 +60,7 @@ namespace web_app_backend
                         x = X,
                         y = Y,
                         HeatmapID = ID,
-                        Strength = S
+                        Value = S
                     };
 
                     heatmaps.Add(obj);
