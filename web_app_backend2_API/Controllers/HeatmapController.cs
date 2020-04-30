@@ -78,24 +78,6 @@ namespace web_app_backend2_API.Controllers
             return Heatmaps;
         }
 
-        [HttpDelete]
-        public async Task DeleteAllHeatmapAsync()
-        {
-            try
-            {
-                //Deleting
-                var response = await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
-                response.EnsureSuccessStatusCode();
-
-                string responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(responseBody);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("Exception message: {0} ", ex.Message);
-            }
-        }
-
     }
 }
 
