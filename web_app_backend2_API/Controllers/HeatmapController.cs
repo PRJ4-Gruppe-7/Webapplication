@@ -25,7 +25,6 @@ namespace web_app_backend2_API.Controllers
         private static readonly CheckEachString CheckEachString = new CheckEachString();
 
         [HttpGet]
-        [Route("get")]
         public async Task<IEnumerable<Heatmap>> GetAllHeatmapAsync()
         {
             // Call asynchronous network methods in a try/catch block to handle exceptions.
@@ -33,7 +32,7 @@ namespace web_app_backend2_API.Controllers
             {
                 Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
 
-               var handler = _httpHandler.Get("https://fruitflyapi.azurewebsites.net/api/Heatmap", Client).EnsureSuccessStatusCode();
+               var handler = _httpHandler.Get("https://fruitflywebapi.azurewebsites.net/api/Heatmap", Client).EnsureSuccessStatusCode();
 
                string responseBody = await handler.Content.ReadAsStringAsync();
 
@@ -75,30 +74,29 @@ namespace web_app_backend2_API.Controllers
                 Console.WriteLine("Message :{0} ", e.Message);
             }
 
+            DeleteAllHeatmapAsync();
             //returns all data stored in the list of heatmaps to the GET method
             return Heatmaps;
         }
 
-        [HttpDelete]
-        [Route("delete")]
-        public async Task DeleteAllHeatmapAsync()
+       
+        public async void DeleteAllHeatmapAsync()
         {
             try
             {
-                Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
                 //Deleting
-                var response = await Client.DeleteAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
+                var response = await Client.DeleteAsync("https://fruitflywebapi.azurewebsites.net/api/Heatmap");
                 response.EnsureSuccessStatusCode();
 
+
                 string responseBody = await response.Content.ReadAsStringAsync();
-                Console.WriteLine(responseBody);
+                Debug.WriteLine("Hello victor" + responseBody);
             }
             catch (Exception ex)
             {
                 Console.WriteLine("Exception message: {0} ", ex.Message);
             }
         }
-
     }
 }
 
