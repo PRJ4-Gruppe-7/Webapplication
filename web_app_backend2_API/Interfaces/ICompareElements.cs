@@ -5,6 +5,6 @@ namespace web_app_backend2_API.Interfaces
 {
     public interface ICompareElements
     {
-        void CompareHeatmapValues(List<Heatmap> items, int index);
+        void CompareHeatmapValues(List<Heatmap> items);
     }
 }

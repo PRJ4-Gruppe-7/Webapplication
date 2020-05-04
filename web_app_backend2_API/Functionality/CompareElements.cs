@@ -7,13 +7,13 @@ namespace web_app_backend2_API
 {
     public class CompareElements : ICompareElements
     {
-        public void CompareHeatmapValues(List<Heatmap> items,int index)
+        public void CompareHeatmapValues(List<Heatmap> items)
         {
-            if (index > 0)
+            if (items.Count > 0)
             {
-                for (int i = 0; i < index; i++)
+                for (int i = 0; i < items.Count; i++)
                 {
-                    for (int j = 0; j < index; j++)
+                    for (int j = 0; j < items.Count; j++)
                     {
                         if (items[i].x == items[j].x && items[i].HeatmapID != items[j].HeatmapID &&
                             items[i].y == items[j].y) //compares two instances of the same list of heatmaps, and check if any coordinates match in the two list.

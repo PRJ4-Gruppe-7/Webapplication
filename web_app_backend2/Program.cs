@@ -24,7 +24,7 @@ namespace web_app_backend2
             try
             {
                 client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3");
-                HttpResponseMessage response = await client.GetAsync("https://fruitflyapi.azurewebsites.net/api/Heatmap");
+                HttpResponseMessage response = await client.GetAsync("https://fruitflywebapi.azurewebsites.net/api/Referencepoint");
                 response.EnsureSuccessStatusCode();
                 string responseBody = await response.Content.ReadAsStringAsync();
 
@@ -136,7 +136,7 @@ namespace web_app_backend2
                 {
                     lineY.Add(i);
                 }
-                else if (i.Contains('h') && i.Contains('e') && i.Contains('a') && i.Contains('t'))
+                else if (i.Contains('r') && i.Contains('e') && i.Contains('f'))
                 {
                     lineHeat.Add(i);
                 }
