@@ -5,23 +5,13 @@ namespace web_app_backend2_API
 {
     public class Extractor : IExtractor
     {
-        private int val;
-        private string a;
-        private string b;
-
-        public Extractor()
-        {
-            val = 0;
-            a = "";
-            b = "";
-        }
-
 
         public int ExtractFromString(string lines)
         {
             //Checks if any element in the chosen string contains any numbers. These number are then stored in the empty string and parsed to an int.
-            a = lines;
-            b = string.Empty;
+            string a = lines;
+            string b = string.Empty;
+            int val = 0;
 
             for (int j = 0; j < a.Length; j++)
             {
