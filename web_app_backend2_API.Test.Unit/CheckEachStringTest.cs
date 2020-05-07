@@ -39,7 +39,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { x1 };
-            uut.CheckString(stringlist,line1,line2,line3);
+            uut.CheckStringHeatmap(stringlist,line1,line2,line3);
 
             Assert.That(line1.IsNullOrEmpty());
         }
@@ -49,7 +49,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { y1 };
-            uut.CheckString(stringlist, line1, line2, line3);
+            uut.CheckStringHeatmap(stringlist, line1, line2, line3);
 
             Assert.That(line2.IsNullOrEmpty());
         }
@@ -59,7 +59,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { h1 };
-            uut.CheckString(stringlist, line1, line2, line3);
+            uut.CheckStringHeatmap(stringlist, line1, line2, line3);
 
             Assert.That(line3.IsNullOrEmpty());
         }
@@ -69,7 +69,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { x1,y1,h1 };
-            uut.CheckString(stringlist, line1, line2, line3);
+            uut.CheckStringHeatmap(stringlist, line1, line2, line3);
 
             Assert.That(line1.IsNullOrEmpty());
             Assert.That(line2.IsNullOrEmpty());
@@ -81,7 +81,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { x1, y1};
-            uut.CheckString(stringlist, line1, line2, line3);
+            uut.CheckStringHeatmap(stringlist, line1, line2, line3);
 
             Assert.That(line3.IsNullOrEmpty());
         }
@@ -91,7 +91,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { y1, h1 };
-            uut.CheckString(stringlist, line1, line2, line3);
+            uut.CheckStringHeatmap(stringlist, line1, line2, line3);
 
             Assert.That(line1.IsNullOrEmpty());
         }
@@ -101,7 +101,7 @@ namespace web_app_backend2_API_Unit.Test
         {
 
             stringlist = new[] { x1, h1 };
-            uut.CheckString(stringlist, line1, line2, line3);
+            uut.CheckStringHeatmap(stringlist, line1, line2, line3);
 
             Assert.That(line2.IsNullOrEmpty());
         }
