@@ -27,56 +27,102 @@ namespace web_app_backend2_API.Controllers
         [HttpGet]
         public async Task<IEnumerable<Heatmap>> GetAllHeatmapAsync()
         {
-            // Call asynchronous network methods in a try/catch block to handle exceptions.
-            try
-            {
-                Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
+            //// Call asynchronous network methods in a try/catch block to handle exceptions.
+            //try
+            //{
+            //    Client.DefaultRequestHeaders.Add("ApiKey", "829320-adajdasd-12vasdas-baslk3"); //Server side API Token
 
-               var handler = _httpHandler.Get("https://fruitflywebapi.azurewebsites.net/api/Heatmap", Client).EnsureSuccessStatusCode();
+            //   var handler = _httpHandler.Get("https://fruitflywebapi.azurewebsites.net/api/Heatmap", Client).EnsureSuccessStatusCode();
 
-               string responseBody = await handler.Content.ReadAsStringAsync();
+            //   string responseBody = await handler.Content.ReadAsStringAsync();
 
-                //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
-                _line = responseBody.Split(',', items * 1000);
+            //    //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
+            //    _line = responseBody.Split(',', items * 1000);
 
-                //Checks for 3 specific strings that contain: 'x', 'y' and ('h', 'e', 'a' and 't').
-                CheckEachString.CheckString(_line, LineX, LineY, LineHeat);
+            //    //Checks for 3 specific strings that contain: 'x', 'y' and ('h', 'e', 'a' and 't').
+            //    CheckEachString.CheckString(_line, LineX, LineY, LineHeat);
 
-                for (int i = 0; i < LineHeat.Count; i++)
-                {
-                    //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
-                    var obj = new Heatmap
-                    {
-                        x = Extractor.ExtractFromString(LineX[i]),
-                        y = Extractor.ExtractFromString(LineY[i]),
-                        HeatmapID = Extractor.ExtractFromString(LineHeat[i]),
-                        Value = 1
-                    };
+            //    for (int i = 0; i < LineHeat.Count; i++)
+            //    {
+            //        //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
+            //        var obj = new Heatmap
+            //        {
+            //            x = Extractor.ExtractFromString(LineX[i]),
+            //            y = Extractor.ExtractFromString(LineY[i]),
+            //            HeatmapID = Extractor.ExtractFromString(LineHeat[i]),
+            //            Value = 1
+            //        };
 
-                    //adds all the added heatmaps into a list of heatmaps. 
-                    Heatmaps.Add(obj);
-                }
+            //        //adds all the added heatmaps into a list of heatmaps. 
+            //        Heatmaps.Add(obj);
+            //    }
 
-                //compares if there are more than 1 element with the same x and y coordinates. If so, the value of the item will increase with 1 pr matching elements.
-                CompareElements.CompareHeatmapValues(Heatmaps, LineHeat.Count);
+            //    //compares if there are more than 1 element with the same x and y coordinates. If so, the value of the item will increase with 1 pr matching elements.
+            //    CompareElements.CompareHeatmapValues(Heatmaps, LineHeat.Count);
 
-                foreach (var i in Heatmaps)
-                {
-                    Debug.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
-                                      i.HeatmapID + "\n");
-                }
+            //    foreach (var i in Heatmaps)
+            //    {
+            //        Debug.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
+            //                          i.HeatmapID + "\n");
+            //    }
 
 
-            }
-            catch (HttpRequestException e)
-            {
-                Console.WriteLine("\nException Caught!");
-                Console.WriteLine("Message :{0} ", e.Message);
-            }
+            //}
+            //catch (HttpRequestException e)
+            //{
+            //    Console.WriteLine("\nException Caught!");
+            //    Console.WriteLine("Message :{0} ", e.Message);
+            //}
 
-            DeleteAllHeatmapAsync();
+            //DeleteAllHeatmapAsync();
             //returns all data stored in the list of heatmaps to the GET method
-            return Heatmaps;
+            return new List<Heatmap> { 
+                new Heatmap { 
+                    HeatmapID = 0,
+                    x = 0,
+                    y = 0,
+                    Value = 7},
+                new Heatmap {
+                    HeatmapID = 1,
+                    x = 0,
+                    y = 1,
+                    Value = 8},
+                new Heatmap {
+                    HeatmapID = 2,
+                    x = 0,
+                    y = 2,
+                    Value = 7},
+                new Heatmap {
+                    HeatmapID = 3,
+                    x = 1,
+                    y = 0,
+                    Value = 4},
+                new Heatmap {
+                    HeatmapID = 4,
+                    x = 1,
+                    y = 1,
+                    Value = 4},
+                new Heatmap {
+                    HeatmapID = 5,
+                    x = 1,
+                    y = 2,
+                    Value = 2},
+                new Heatmap {
+                    HeatmapID = 6,
+                    x = 2,
+                    y = 0,
+                    Value = 6},
+                new Heatmap {
+                    HeatmapID = 7,
+                    x = 2,
+                    y = 1,
+                    Value = 8},
+                new Heatmap {
+                    HeatmapID = 8,
+                    x = 2,
+                    y = 2,
+                    Value = 9},
+            };
         }
 
        
