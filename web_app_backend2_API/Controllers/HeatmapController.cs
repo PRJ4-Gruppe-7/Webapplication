@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using web_app_backend2.Models;
 using web_app_backend2_API.Functionality;
+using web_app_backend2_API.Interfaces;
 
 namespace web_app_backend2_API.Controllers
 {
@@ -14,7 +15,7 @@ namespace web_app_backend2_API.Controllers
     public class HeatmapController : ControllerBase
     {
         private static readonly int items = 8; //based on number of commas in original heatmap DB
-        private static HttpHandler _httpHandler;
+        private static IHttpHandler _httpHandler;
         private static HttpClient HeatClient;
         private static HttpClient RefClient;
         private readonly List<string> LineX;
@@ -25,10 +26,10 @@ namespace web_app_backend2_API.Controllers
         private readonly List<string> LineRef;
         private readonly List<Heatmap> Heatmaps;
         private readonly List<Heatmap> HeatmapsRef;
-        private readonly Extractor Extractor;
-        private readonly CompareElements CompareElements;
-        private readonly CompareLists CompareList;
-        private readonly CheckEachString CheckEachString;
+        private readonly IExtractor Extractor;
+        private readonly ICompareElements CompareElements;
+        private readonly ICompareLists CompareList;
+        private readonly ICheckEachString CheckEachString;
 
 
         public HeatmapController()
@@ -113,7 +114,7 @@ namespace web_app_backend2_API.Controllers
                 Console.WriteLine("Message :{0} ", e.Message);
             }
 
-            DeleteAllHeatmapAsync();
+            //DeleteAllHeatmapAsync();
 
             //returns all data stored in the list of heatmaps to the GET method
             Console.WriteLine("All heatmap data stored");

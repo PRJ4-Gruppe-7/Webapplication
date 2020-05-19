@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using web_app_backend2.Models;
+using web_app_backend2_API.Interfaces;
 
 namespace web_app_backend2_API.Functionality
 {
-    public class CompareLists
+    public class CompareLists : ICompareLists
     {
         public void CompareList(List<Heatmap> heatmap, List<Heatmap> Reference)
         {
