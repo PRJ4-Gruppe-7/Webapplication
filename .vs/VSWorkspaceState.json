@@ -1,7 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\web_app_backend2_API"
+    "\\web_app_backend2_API",
+    "\\web_app_backend\\Controller"
   ],
   "SelectedNode": "\\web_app_backend2_API\\web_app_backend2.sln",
   "PreviewInSolutionExplorer": false
