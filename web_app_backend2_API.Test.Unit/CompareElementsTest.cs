@@ -13,6 +13,7 @@ namespace web_app_backend2_API_Unit.Test
     {
         private ICompareElements uut;
         private List<Heatmap> items;
+
         private Heatmap h1 = new Heatmap
         {
             x = 3,
@@ -20,6 +21,7 @@ namespace web_app_backend2_API_Unit.Test
             Value = 1,
             HeatmapID = 1
         };
+
         private Heatmap h2 = new Heatmap
         {
             x = 42,
@@ -27,6 +29,7 @@ namespace web_app_backend2_API_Unit.Test
             Value = 1,
             HeatmapID = 2
         };
+
         private Heatmap h3 = new Heatmap
         {
             x = 32,
@@ -34,6 +37,7 @@ namespace web_app_backend2_API_Unit.Test
             Value = 1,
             HeatmapID = 3
         };
+
         private Heatmap h4 = new Heatmap
         {
             x = 17,
@@ -41,6 +45,7 @@ namespace web_app_backend2_API_Unit.Test
             Value = 1,
             HeatmapID = 4
         };
+
         private Heatmap h5 = new Heatmap
         {
             x = 3,
@@ -66,18 +71,18 @@ namespace web_app_backend2_API_Unit.Test
         }
 
         [Test]
-        public void OneMatchingItem()
+        public void oneMatchingItems_inlist()
         {
-            uut.CompareHeatmapValues(items, items.Count);
-            Assert.AreEqual(2,items[0].Value);
+            uut.CompareHeatmapValues(items);
+            Assert.AreEqual(3, items[4].Value);
         }
 
         [Test]
-        public void NoMatchingItem()
+        public void noMatchingItem_inlist()
         {
-            uut.CompareHeatmapValues(items, items.Count);
-            Assert.AreNotEqual(2, items[1].Value);
+            uut.CompareHeatmapValues(items);
+            Assert.AreEqual(1, items[1].Value);
         }
-
     }
+
 }

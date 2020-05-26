@@ -100,3 +100,5 @@ C:\Users\viksk\Source\Repos\PRJ4-Gruppe-7\Webapplication\web_app_backend2_API\ob
 C:\Users\viksk\Source\Repos\PRJ4-Gruppe-7\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.csproj.CopyComplete
 C:\Users\viksk\Source\Repos\PRJ4-Gruppe-7\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.dll
 C:\Users\viksk\Source\Repos\PRJ4-Gruppe-7\Webapplication\web_app_backend2_API\obj\Debug\netcoreapp3.1\web_app_backend2_API.pdb
+D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll

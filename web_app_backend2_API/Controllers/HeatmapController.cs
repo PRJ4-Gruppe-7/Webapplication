@@ -75,38 +75,37 @@ namespace web_app_backend2_API.Controllers
 
                 var handler = _httpHandler.Get("https://fruitflywebapi.azurewebsites.net/api/Heatmap", HeatClient).EnsureSuccessStatusCode();
 
-                var responseBody = await handler.Content.ReadAsStringAsync();
-
-                //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
-                var _line = responseBody.Split(',', items * 1000);
-
-                //Checks for 3 specific strings that contain: 'x', 'y' and ('h', 'e', 'a' and 't').
-                CheckEachString.CheckStringHeatmap(_line, LineX, LineY, LineHeat);
-
-                for (int i = 0; i < LineHeat.Count; i++)
+                if (handler.IsSuccessStatusCode)
                 {
-                    //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
-                    var obj = new Heatmap
+
+                    var responseBody = await handler.Content.ReadAsStringAsync();
+
+                    Console.WriteLine("Connection established");
+
+                    //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
+                    var _line = responseBody.Split(',', items * 1000);
+
+                    //Checks for 3 specific strings that contain: 'x', 'y' and ('h', 'e', 'a' and 't').
+                    CheckEachString.CheckStringHeatmap(_line, LineX, LineY, LineHeat);
+
+                    for (int i = 0; i < LineHeat.Count; i++)
                     {
-                        x = Extractor.ExtractFromString(LineX[i]),
-                        y = Extractor.ExtractFromString(LineY[i]),
-                        HeatmapID = Extractor.ExtractFromString(LineHeat[i]),
-                        Value = 1
-                    };
+                        //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
+                        var obj = new Heatmap
+                        {
+                            x = Extractor.ExtractFromString(LineX[i]),
+                            y = Extractor.ExtractFromString(LineY[i]),
+                            HeatmapID = Extractor.ExtractFromString(LineHeat[i]),
+                            Value = 1
+                        };
 
-                    //adds all the added heatmaps into a list of heatmaps. 
-                    Heatmaps.Add(obj);
+                        //adds all the added heatmaps into a list of heatmaps. 
+                        Heatmaps.Add(obj);
+                    }
+
+                    //compares if there are more than 1 element with the same x and y coordinates. If so, the value of the item will increase with 1 pr matching elements.
+                    CompareElements.CompareHeatmapValues(Heatmaps);
                 }
-
-                //compares if there are more than 1 element with the same x and y coordinates. If so, the value of the item will increase with 1 pr matching elements.
-                CompareElements.CompareHeatmapValues(Heatmaps);
-
-                //foreach (var i in Heatmaps)
-                //{
-                //    Console.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
-                //                      i.HeatmapID + "\n");
-                //}
-
             }
             catch (HttpRequestException e)
             {
@@ -129,36 +128,34 @@ namespace web_app_backend2_API.Controllers
 
                 var handler = _httpHandler.Get("https://fruitflywebapi.azurewebsites.net/api/Referencepoint", RefClient).EnsureSuccessStatusCode();
 
-                var responseBody = await handler.Content.ReadAsStringAsync();
-
-                //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
-                var _line = responseBody.Split(',', items * 1000);
-
-                //Checks for 3 specific strings that contain: 'x', 'y' and ('h', 'e', 'a' and 't').
-                CheckEachString.CheckStringReference(_line, RefLineX, RefLineY, LineRef);
-
-                for (int i = 0; i < LineRef.Count; i++)
+                if (handler.IsSuccessStatusCode)
                 {
-                    //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
-                    var obj = new Heatmap
+                    Console.WriteLine("Connection established");
+
+
+                    var responseBody = await handler.Content.ReadAsStringAsync();
+
+                    //Splits the responsebody into each datatype and it's value. Items * 1000 to make sure that a thousand heatmapID's can be loaded.
+                    var _line = responseBody.Split(',', items * 1000);
+
+                    //Checks for 3 specific strings that contain: 'x', 'y' and ('r', 'e', and 'f').
+                    CheckEachString.CheckStringReference(_line, RefLineX, RefLineY, LineRef);
+
+                    for (int i = 0; i < LineRef.Count; i++)
                     {
-                        x = Extractor.ExtractFromString(RefLineX[i]),
-                        y = Extractor.ExtractFromString(RefLineY[i]),
-                        HeatmapID = Extractor.ExtractFromString(LineRef[i]),
-                        Value = 0
-                    };
+                        //Here a new object of heatmap is created for each heatmap ID in the database. The values are collected from the sepereate list of x, y and heatmapID.
+                        var obj = new Heatmap
+                        {
+                            x = Extractor.ExtractFromString(RefLineX[i]),
+                            y = Extractor.ExtractFromString(RefLineY[i]),
+                            HeatmapID = Extractor.ExtractFromString(LineRef[i]),
+                            Value = 0
+                        };
 
-                    //adds all the added heatmaps into a list of heatmaps. 
-                    HeatmapsRef.Add(obj);
+                        //adds all the added heatmaps into a list of heatmaps. 
+                        HeatmapsRef.Add(obj);
+                    }
                 }
-
-
-                //foreach (var i in HeatmapsRef)
-                //{
-                //    Console.WriteLine("X: " + i.x + "\t" + "Y: " + i.y + "\t" + "Value: " + i.Value + "\t" + "ID: " +
-                //                      i.HeatmapID + "\n");
-                //}
-
             }
             catch (HttpRequestException e)
             {
@@ -182,7 +179,7 @@ namespace web_app_backend2_API.Controllers
                 response.EnsureSuccessStatusCode();
                 Console.WriteLine("All heatmap data on DB removed");
 
-                string responseBody = await response.Content.ReadAsStringAsync();
+                //string responseBody = await response.Content.ReadAsStringAsync();
             }
             catch (Exception ex)
             {

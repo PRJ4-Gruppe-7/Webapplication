@@ -135,3 +135,5 @@ D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API.Test.Uni
 D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API.Test.Unit\bin\Debug\netcoreapp3.1\Moq.dll
 D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API.Test.Unit\obj\Debug\netcoreapp3.1\web_app_backend2_API.Test.Unit.csproj.CoreCompileInputs.cache
 D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API.Test.Unit\obj\Debug\netcoreapp3.1\web_app_backend2_API.Test.Unit.genruntimeconfig.cache
+D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API.Test.Unit\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+D:\Repository\AarhusUniversity\PRJ4\Webapplication\web_app_backend2_API.Test.Unit\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
