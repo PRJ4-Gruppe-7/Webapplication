@@ -118,30 +118,46 @@ namespace web_app_backend2_API_Unit.Test
             items1.Add(r5);
             items1.Add(r6);
             items1.Add(r7);
-
-            items2.Add(h1);
-            items2.Add(h2);
-            items2.Add(h3);
-            items2.Add(h4);
-
-
-
-        }
-
-        [Test]
-        public void OneMatchingItem()
-        {
-            uut.CompareList(items1,items2);
-            Assert.AreEqual(3, items2[0].Value);
+            
         }
 
         [Test]
         public void noMatchingItem()
         {
-            uut.CompareList(items1, items2);
-            Assert.AreEqual(1, items2[3].Value);
+            items2.Add(h1);
+            items2.Add(h2);
+            items2.Add(h3);
+            items2.Add(h4);
+            uut.CompareList(items2, items1);
+            Assert.AreEqual(1, items1[0].Value);
+            items1.Clear();
+            items2.Clear();
         }
 
+        [Test]
+        public void OneMatchingItem()
+        {
+            items2.Add(h1);
+            items2.Add(h2);
+            items2.Add(h3);
+            items2.Add(h4);
+            uut.CompareList(items2,items1);
+            Assert.AreEqual(2, items1[2].Value);
+            items1.Clear(); 
+            items2.Clear();
+        }
 
+        [Test]
+        public void twoMatchingItem()
+        {
+            items2.Add(h1);
+            items2.Add(h2);
+            items2.Add(h3);
+            items2.Add(h4);
+            uut.CompareList(items2, items1);
+            Assert.AreEqual(3, items1[5].Value);
+            items1.Clear();
+            items2.Clear();
+        }
     }
 }

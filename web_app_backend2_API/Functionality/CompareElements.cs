@@ -15,8 +15,7 @@ namespace web_app_backend2_API
                 {
                     for (int j = 0; j < items.Count; j++)
                     {
-                        if (items[i].x == items[j].x && items[i].HeatmapID != items[j].HeatmapID &&
-                            items[i].y == items[j].y) //compares two instances of the same list of heatmaps, and check if any coordinates match in the two list.
+                        if (items[i].x == items[j].x && items[i].HeatmapID != items[j].HeatmapID && items[i].y == items[j].y) //compares two instances of the same list of heatmaps, and check if any coordinates match in the two list.
                         {
                             Console.WriteLine("It's a match! " + "\t ID: " + items[i].HeatmapID + " X: " + items[i].x +
                                               " Y: " + items[i].y + "\t ID: " + items[j].HeatmapID + " X: " +

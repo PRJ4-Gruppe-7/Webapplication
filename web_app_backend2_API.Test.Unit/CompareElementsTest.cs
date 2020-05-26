@@ -54,6 +54,29 @@ namespace web_app_backend2_API_Unit.Test
             HeatmapID = 5
         };
 
+        private Heatmap h6 = new Heatmap
+        {
+            x = 17,
+            y = 55,
+            Value = 1,
+            HeatmapID = 6
+        };
+
+        private Heatmap h7 = new Heatmap
+        {
+            x = 17,
+            y = 55,
+            Value = 1,
+            HeatmapID = 7
+        };
+        private Heatmap h8 = new Heatmap
+        {
+            x = 17,
+            y = 55,
+            Value = 1,
+            HeatmapID = 8
+        };
+
 
         [SetUp]
         public void Setup()
@@ -62,26 +85,59 @@ namespace web_app_backend2_API_Unit.Test
 
             items = new List<Heatmap>();
 
-            items.Add(h1);
-            items.Add(h2);
-            items.Add(h3);
-            items.Add(h4);
-            items.Add(h5);
-
-        }
-
-        [Test]
-        public void oneMatchingItems_inlist()
-        {
-            uut.CompareHeatmapValues(items);
-            Assert.AreEqual(3, items[4].Value);
         }
 
         [Test]
         public void noMatchingItem_inlist()
         {
+            items.Add(h1);
+            items.Add(h2);
+            items.Add(h3);
+            items.Add(h4);
             uut.CompareHeatmapValues(items);
             Assert.AreEqual(1, items[1].Value);
+            items.Clear();
+        }
+
+        [Test]
+        public void twoMatchingItems_inlist()
+        {
+            items.Add(h1);
+            items.Add(h2);
+            items.Add(h3);
+            items.Add(h4);
+            items.Add(h5);
+            uut.CompareHeatmapValues(items);
+            Assert.AreEqual(2, items[4].Value);
+            items.Clear();
+
+        }
+
+        [Test]
+        public void threeMatchingItem_inlist()
+        {
+            items.Add(h2);
+            items.Add(h3);
+            items.Add(h4);
+            items.Add(h6);
+            items.Add(h7);
+            uut.CompareHeatmapValues(items);
+            Assert.AreEqual(3, items[4].Value);
+            items.Clear();
+        }
+        [Test]
+        public void FourMatchingItem_inlist()
+        {
+            items.Add(h2);
+            items.Add(h3);
+            items.Add(h4);
+            items.Add(h6);
+            items.Add(h7);
+            items.Add(h8);
+
+            uut.CompareHeatmapValues(items);
+            Assert.AreEqual(4, items[2].Value);
+            items.Clear();
         }
     }
 
